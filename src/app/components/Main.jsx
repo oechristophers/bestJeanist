@@ -1,0 +1,1 @@
+// Only footer and header will be part of the layout, the rest will be in page
