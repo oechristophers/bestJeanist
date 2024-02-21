@@ -19,7 +19,7 @@ export default function Footer() {
             </h3>
             <br />
             <p className="w-[25ch]  footer_small">
-              © 2024 designed and developed by oechristophers. Powered by React.
+              © {new Date().getFullYear()} designed and developed by oechristophers. Powered by React.
             </p>
           </section>
 

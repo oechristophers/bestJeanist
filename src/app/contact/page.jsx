@@ -24,36 +24,36 @@ export default function Contact() {
   return (
     <div>
       <div className="flex w-[100%] px-10 mt-4 flex-wrap">
-        <section className="md:w-[50%] gap-6 flex flex-col w-[100vw]">
+        <section className="md:w-[40%] gap-6 flex flex-col w-[100vw]">
           <h2 className="text-2xl">Contact Us</h2>
           <address className="leading-7 w-[25ch]">
             128 Melbourne Australia 2nd Floor, New Town Australia.
             <br />
             <p className="mt-4">+2348160601064</p>
-            <article className="flex mt-4  gap-3">
-              <span className="text-red-300 pt-2">
-                <BsEnvelopeFill />
-              </span>
-              <p> oechristophers@gmail.com</p>
-            </article>
-            <div className="flex gap-4 text-2xl footer_small-icon mt-3">
-              <span>
-                <FaFacebookF />
-              </span>
-              <span>
-                <FaInstagram />
-              </span>
-              <span>
-                <IoLogoTwitter />
-              </span>
-              <span>
-                <AiFillSkype />
-              </span>
-            </div>
           </address>
+          <article className="flex gap-3">
+            <span className="text-red-300 pt-2">
+              <BsEnvelopeFill />
+            </span>
+            <p> oechristophers@gmail.com</p>
+          </article>
+          <div className="flex gap-4 text-2xl footer_small-icon mt-3">
+            <span>
+              <FaFacebookF />
+            </span>
+            <span>
+              <FaInstagram />
+            </span>
+            <span>
+              <IoLogoTwitter />
+            </span>
+            <span>
+              <AiFillSkype />
+            </span>
+          </div>
         </section>
 
-        <section className="md:w-[50%] gap-6 flex flex-col w-[100vw]">
+        <section className="md:w-[60%] gap-6 flex flex-col w-[100vw]">
           <h2 className="text-2xl">Drop Us a Message</h2>
           <form
             onSubmit={handleSubmit}
@@ -85,7 +85,7 @@ export default function Contact() {
               value={message}
               onChange={(m) => setMessage(m.target.value)}
               placeholder="Your Message"
-              className="text-black w-[100%] rounded-md"
+              className="text-black w-[100%] rounded-md px-3"
             ></textarea>
             <button
               type="submit"
