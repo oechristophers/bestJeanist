@@ -14,17 +14,17 @@ export function EmblaCarousel() {
           <section className="relative max-h-[fit-content] ">
             <Image
               src="/jean4.jpg"
-             layout="responsive"
-             width={200}
-             height={200}
-             objectPosition="top"
+              layout="responsive"
+              width={200}
+              height={200}
+              objectPosition="top"
               className="responsive-image"
             />
           </section>
         </div>
         <div className="embla__slide2 mx-auto">
           <h3 className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
-            Hope You're good
+            Hope You&apos;re good
           </h3>
         </div>
         <div className="embla__slide3 bg-blue-950 mx-6">
