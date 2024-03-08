@@ -136,9 +136,9 @@ export default function page({ params }) {
             <p>
               Whether you prefer your denim crisp and pristine or love the
               worn-in look, your bestJeanist jeans are up for the challenge.
-              Whether you're keeping them looking fresh out of the store or
+              Whether you&apos;re keeping them looking fresh out of the store or
               putting them through the wringer to showcase their durability,
-              proper care ensures they'll continue to excel at what they're made
+              proper care ensures they&apos;ll continue to excel at what they&apos;re made
               for: being worn and keeping you comfy.
             </p>
           </div>
