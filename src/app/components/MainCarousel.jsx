@@ -17,6 +17,7 @@ export function EmblaCarousel() {
               layout="responsive"
               width={200}
               height={200}
+              alt="slides"
               objectPosition="top"
               className="responsive-image"
             />
