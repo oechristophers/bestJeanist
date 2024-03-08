@@ -22,7 +22,7 @@ export default function Contact() {
     alert(`Name: ${name} \n Email: ${email} \n Message:${message}`);
   };
   return (
-    <div>
+    <div className="bg-white pt-10">
       <div className="flex w-[100%] px-10 mt-4 flex-wrap">
         <section className="md:w-[40%] gap-6 flex flex-col w-[100vw]">
           <h2 className="text-2xl">Contact Us</h2>
@@ -57,7 +57,7 @@ export default function Contact() {
           <h2 className="text-2xl">Drop Us a Message</h2>
           <form
             onSubmit={handleSubmit}
-            className="flex w-[100%] flex-wrap gap-y-4 gap-x-5  "
+            className="flex w-[100%] flex-wrap gap-y-4 gap-x-5  text-black"
           >
             <input
               type="name"
@@ -66,7 +66,7 @@ export default function Contact() {
               value={name}
               onChange={(n) => setName(n.target.value)}
               placeholder="Your Name"
-              className="text-black rounded-md lg:w-[48%] h-10 pl-5 relative w-[100%]"
+              className="text-black rounded-md lg:w-[48%] h-10 pl-5 relative w-[100%] border border-black"
             />
             <input
               type="email"
@@ -75,7 +75,7 @@ export default function Contact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your Email"
-              className="text-black rounded-md lg:w-[48%] h-10 pl-5 relative w-[100%]"
+              className="text-black rounded-md lg:w-[48%] h-10 pl-5 relative w-[100%] border border-black"
             />
             <textarea
               name="message"
@@ -85,12 +85,12 @@ export default function Contact() {
               value={message}
               onChange={(m) => setMessage(m.target.value)}
               placeholder="Your Message"
-              className="text-black w-[100%] rounded-md px-3"
+              className="text-black w-[100%] rounded-md px-3 border border-black pt-2"
             ></textarea>
             <button
               type="submit"
               onClick={handleSubmit}
-              className="bg-slate-500 w-20 h-10 rounded-md  shadow-inner"
+              className="bg-black text-white w-20 h-10 rounded-md  shadow-inner"
             >
               Submit
             </button>

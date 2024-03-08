@@ -5,28 +5,41 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { CgShoppingCart } from "react-icons/cg";
 import { RxCross1 } from "react-icons/rx";
 import { GoPerson } from "react-icons/go";
+import { CiSearch } from "react-icons/ci";
+import CartPage from "../shop/cart/page";
+
 
 export default function NavBar() {
-  const [cart, setCart] = useState(0); //hook must be immediately after the function
   const [open, setOpen] = useState(true);
 
   function controlNav() {
     setOpen(!open);
   }
 
+  const [sort, setSort] = useState("");
+
+  function searchProd(e) {
+    setSort(e.target.value);
+  }
+
   return (
-    <nav className="flex justify-between px-4 gap-3 pt-4">
-      <h1 className="text-[21px] lg:pl-32">
-        best<span className="font-bold text-2xl">Jeanist</span>
+    <nav className="flex justify-between px-4 gap-3 pt-4 pb-5">
+      <h1 className="text-[18px] lg:pl-32 font-bold">
+        <Link href="/"> BESTJEANIST</Link>
       </h1>
       <ul
         className={`md:flex md:flex-row ${
           open ? "hidden" : " flex flex-col max-w-72 mt-[-40px]"
-        } md:flex lg:gap-14 md:gap-7 gap-6 md:mr-4 flex-grow header_small self-center md:justify-center shadow-md md:mt-0 ease-in-out`}
+        } md:flex lg:gap-14 md:gap-7 gap-6 md:mr-4 flex-grow header_small self-center md:justify-center shadow-md md:shadow-[0] md:mt-0 ease-in-out z-[60]`}
       >
-        <li className={` md:hidden ${ open ? "hidden" : " flex text-[21px] lg:pl-32 justify-center items-center pt-4"}`}>
-          
-          best<span className="font-bold text-2xl ">Jeanist</span>
+        <li
+          className={` md:hidden ${
+            open
+              ? "hidden"
+              : " flex text-[18px] lg:pl-32 justify-center items-center pt-4 font-bold"
+          }`}
+        >
+          <Link href="/"> BESTJEANIST</Link>
         </li>
         <li>
           <Link href="/">Home </Link>
@@ -45,6 +58,20 @@ export default function NavBar() {
         </li>
       </ul>
 
+      <ul>
+        <section className=" items-center border-4 border-gray-600  w-[100%] hidden md:flex">
+          <input
+            type="text"
+            name="text"
+            id="text"
+            placeholder="search keyword"
+            className=" outline-none border-none pl-8 w-5/6 bg-transparent"
+            onChange={searchProd}
+            defaultValue={sort}
+          />
+          <CiSearch />
+        </section>
+      </ul>
       <ul className="flex gap-3 right-5 text-2xl">
         <li>
           <Link href="" className="flex gap-1">
@@ -52,10 +79,7 @@ export default function NavBar() {
           </Link>
         </li>
         <li>
-          <Link href="" className="flex gap-1">
-            <CgShoppingCart />
-            <span className="text-[10px] items-center">{cart}</span>
-          </Link>
+          <CartPage/>
         </li>
 
         <li

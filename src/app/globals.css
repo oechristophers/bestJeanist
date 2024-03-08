@@ -31,44 +31,102 @@ body {
     text-wrap: balance;
   }
 
-@media screen and (max-width: 760px) {
-  .header_small {
-    position: fixed;
-    top: 2.5rem; 
-    left: 0;
-    background-color: rgb(90, 9, 90);
-    height: 100vh;
-    width: 100vw; 
-    padding-left: 0.75rem;
-  }
-}
+ 
+  .cart-small {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: whitesmoke;
+      color:black;
+      height: 100vh;
+      width: 100vw;
+      padding-left: 0.75rem;
+    }
 
-@media screen and (max-width: 585px) {
-    .footer_small{
+  @media screen and (max-width: 760px) {
+    .header_small {
+      position: fixed;
+      top: 2.5rem;
+      left: 0;
+      background-color: whitesmoke;
+      color:black;
+      height: 100vh;
+      width: 100vw;
+      padding-left: 0.75rem;
+    }
+     .cart-small {
+      position: fixed;
+      top: 2.5rem;
+      right: 0;
+      background-color: whitesmoke;
+      color:black;
+      height: 100vh;
+      width: 100vw;
+      padding-left: 0.75rem;
+    }
+  }
+
+  @media screen and (max-width: 585px) {
+    .footer_small {
       font-size: 13px;
     }
-    .footer_small_pad{
-       margin-top: 20px;
+    .footer_small_pad {
+      margin-top: 20px;
     }
-    
-}
+  }
 
-@media screen and (max-width: 390px) {
-    .footer_small{
+  @media screen and (max-width: 390px) {
+    .footer_small {
       font-size: 10px;
       line-height: 2;
     }
-    .footer_small-icon{
+    .footer_small-icon {
       font-size: 13px;
     }
-    .footer_small_pad{
-       margin-top: 20px;
+    .footer_small_pad {
+      margin-top: 20px;
     }
+  }
+
+  .ease_transit {
+    transition: all ease-in 3s;
+  }
+
+  .aspect-h-9 {
+    height: "90vh";
+    padding-bottom: "56.25%";
+  }
+  .aspect-w-16 {
+    width: 100%;
+    padding-top: 56.25%; 
+  }
+
+  .embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide1,.embla__slide2,.embla__slide3 {
+  flex: 0 0 100%;
+  min-width: 0;
 }
 
-.ease_transit{
-  transition: all ease-in 3s;
-}
+.embla__slide2{
+  background:url("/jean7.jpg");
+  background-size: cover;
+  background-position: 'center';
+  height: auto;
+  width: 100%;
 }
 
-   
+.responsive-image {
+  max-width: inherit;
+  height:fit-content ;
+}
+
+
+
+
+
+}

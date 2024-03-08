@@ -5,17 +5,18 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { IoLogoTwitter } from "react-icons/io";
 import { AiFillSkype } from "react-icons/ai";
+import Link from 'next/link';
 
 
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className='bg-black text-white'>
       <div className="px-4 lg:flex lg:gap-12 md:justify-center md:pl-20 lg:px-28 py-20 ">
         <article className="flex gap-10 w-[100%]">
           <section className="w-[50%]">
-            <h3 className="text-[21px]">
-              best<span className="font-bold text-2xl">Jeanist</span>
+            <h3 className="text-[18px]">
+             <Link href='/'>BESTJEANIST</Link>
             </h3>
             <br />
             <p className="w-[25ch]  footer_small">

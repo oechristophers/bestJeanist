@@ -1,9 +1,14 @@
+"use client"
 import React from "react";
+import LocationBar from "../components/LocationBar";
 
-export const metadata = {
-  title: "Ekene about page",
-};
+// y
 
 export default function about({ children }) {
-  return <div>{children}</div>;
+  return (
+    <div >
+      <LocationBar currentUrl='/about'  />
+      {children}
+    </div>
+  );
 }

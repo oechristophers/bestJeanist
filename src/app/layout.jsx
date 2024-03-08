@@ -2,6 +2,7 @@ import {Prompt } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { CartProvider } from "./shop/cart/Cart";
 
 const inter = Prompt({ subsets: ["latin"], weight: ["400"] });
 
@@ -15,12 +16,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
       
-      <body className={inter.className}>
-        <Header/>
+      <body className={` bg-white text-black ${inter.className}`} >
+        <CartProvider>   
+          <Header/>
 
         {children}
 
          <Footer/>
+         </CartProvider>   
         </body>
 
    
