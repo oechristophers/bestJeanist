@@ -110,10 +110,27 @@ body {
 .embla__slide1,.embla__slide2,.embla__slide3 {
   flex: 0 0 100%;
   min-width: 0;
+  height: 100vh;
+  width: 100%;
 }
 
+.embla__slide1{
+  background:url("/frontcollage.webp");
+  background-size: cover;
+  background-position: 'center';
+  height: auto;
+  
+}
 .embla__slide2{
-  background:url("/jean7.jpg");
+  background:url("/frontcollage2.webp");
+  background-size: cover;
+  background-position: 'center';
+  height: auto;
+  width: 100%;
+}
+
+.embla__slide3{
+  background:url("/frontcollage3.webp");
   background-size: cover;
   background-position: 'center';
   height: auto;
