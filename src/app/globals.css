@@ -115,7 +115,7 @@ body {
 }
 
 .embla__slide1{
-  background:url("/frontcollage.webp");
+  background:image-set("/frontcollage.webp");
   background-size: cover;
   background-position: 'center';
   height: auto;

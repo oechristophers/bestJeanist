@@ -15,7 +15,7 @@ export function EmblaCarousel() {
         </div>
         <div className="embla__slide2">
           <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text h-[100vh] ">
-            Hello
+             
           </section>
         </div>
         <div className="embla__slide3 bg-blue-950 ml-12">
