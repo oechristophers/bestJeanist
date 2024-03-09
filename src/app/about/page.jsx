@@ -140,9 +140,7 @@ export default function About() {
         <h2 className="flex justify-start text-2xl mt-6">Celebrites</h2>
         <p className="flex pt-8 leading-9">
           Dressing those at the top of their game has always been a part of our
-          DNA, it&apos;s important for best Jeanist to be seen alongside the
-          names and personalities that we admire and have a huge amount of
-          respect for.
+          DNA, it&apos;s important for best Jeanist to be seen alongside the names and personalities that we admire and have a huge amount of respect for.
         </p>
 
         <div className="grid grid-cols-3 gap-3 mt-10">
