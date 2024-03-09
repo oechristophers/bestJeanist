@@ -114,7 +114,7 @@ body {
   width: 100%;
 }
 
-.embla__slide1{
+/* .embla__slide1{
   background:image-set("/frontcollage.webp");
   background-size: cover;
   background-position: 'center';
@@ -135,7 +135,7 @@ body {
   background-position: 'center';
   height: auto;
   width: 100%;
-}
+} */
 
 .responsive-image {
   max-width: inherit;
