@@ -33,7 +33,7 @@ export function EmblaCarousel() {
         <div className="embla__slide3 bg-blue-950 ml-12">
           <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-yellow-500 via-yellow-200 to-yellow-100 bg-clip-text h-[100vh] w-[100vw]">
             <Image 
-            src='/frontimg.jpg'
+            src='/frontCollage3.webp'
             alt="slide"
             layout="responsive"
             width={500}
