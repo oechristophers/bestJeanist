@@ -7,10 +7,7 @@ import Link from "next/link";
 import LocationBar from "@/app/components/LocationBar";
 import { useCart } from "../cart/Cart";
 
-export default function page({ params }) {
-       const { cartItems, setCartItems } = useCart();
-       const { totalCart, setTotalCart } = useCart();
-       const { totalItem, setTotalItem } = useCart(0);
+export default function Page({ params }) {
          const { quant, setQuant } = useCart();
        const { addToCart } = useCart();
   const prodCard = denimData.find(

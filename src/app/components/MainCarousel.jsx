@@ -8,7 +8,7 @@ export function EmblaCarousel() {
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
   return (
-    <div className="embla" ref={emblaRef}>
+    <div className="embla max-h-[107vh]" ref={emblaRef}>
       <div className="embla__container">
         <div className="embla__slide1">
           <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
