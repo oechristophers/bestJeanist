@@ -13,39 +13,48 @@ export default function Category({ params }) {
   const prodFilter = denimData.filter(
     (denim) => denim.category.toLowerCase().split(" ").join("-") == params.slug
   );
-  
 
-const [sort, setSort] = useState("")
+  const [sort, setSort] = useState("");
 
-const [open, setOpen] = useState(true);
-const [open2, setOpen2] = useState(true);
+  const [open, setOpen] = useState(true);
+  const [open2, setOpen2] = useState(true);
 
-function controlNav() {
-  setOpen(!open);
-}
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(9); // Number of items per page
+  function controlNav() {
+    setOpen(!open);
+  }
 
-function controlNav2() {
-  setOpen2(!open2);
-}
-   function searchProd(e) {
-     setSort(e.target.value);
-   }
+  function controlNav2() {
+    setOpen2(!open2);
+  }
+  function searchProd(e) {
+    setSort(e.target.value);
+  }
 
-   
-    const prodCard= prodFilter.filter(
-      (data) =>
-        data.name.toLowerCase().includes(sort.toLowerCase())
-    );
-    
+  // const prodCard = prodFilter.filter((data) =>
+  //   data.name.toLowerCase().includes(sort.toLowerCase())
+  // );
+
   // const prodCard = denimData.filter(
   //   (denim) => denim.category.toLowerCase().split(" ").join("-") == params.slug
   // );
 
- 
+  // Pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = prodFilter
+    .filter(
+      (data) =>
+        data.name.toLowerCase().includes(sort.toLowerCase()) ||
+        data.category.toLowerCase().includes(sort.toLowerCase())
+    )
+    .slice(indexOfFirstItem, indexOfLastItem);
 
-   
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const denimGrp = prodCard.map((denim) => (
+  const denimGrp = currentItems.map((denim) => (
     <section
       key={denim.id}
       className="px-3  h-[50vh] sm:w-[20rem] pt-6 sm:h-[83vh] md:h-[72vh] md:w-[15rem] lg:w-[17rem]"
@@ -74,6 +83,11 @@ function controlNav2() {
       </Link>
     </section>
   ));
+  // Pagination - page numbers
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(denimData.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
   return (
     <>
       <LocationBar currentUrl={"/shop"} />
@@ -139,9 +153,30 @@ function controlNav2() {
         <div className="  col-span-4 lg:w-[80%] ">
           <section className=" flex flex-col justify-center items-center">
             <div className="grid grid-cols-2 md:w-[48rem] lg:w-[55rem] md:grid-cols-3 md:p-10  lg:p-14 lg:mr-16  lg:pt-0 ">
-              {prodCard == 0 ? <h2 className=" ">No items Found</h2> : denimGrp}
+              {currentItems == 0 ? <h2 className=" ">No items Found</h2> : denimGrp}
             </div>
           </section>
+          {/* Pagination */}
+          <ul className="pagination flex gap-5  justify-center pb-10">
+            {pageNumbers.map((number) => (
+              <li
+                key={number}
+                className={`page-item ${
+                  currentPage === number ? "current-page" : ""
+                }`}
+              >
+                <a
+                  onClick={() => paginate(number)}
+                  href="#"
+                  className={`page-link ${
+                    currentPage === number ? "current-page-link" : ""
+                  }`}
+                >
+                  {number}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

@@ -29,6 +29,7 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+   
   }
 
  
@@ -100,6 +101,9 @@ body {
     width: 100%;
     padding-top: 56.25%; 
   }
+  .main-bg{
+    background: rgba(235, 231, 231, 0.868);
+  }
 
   .embla {
   overflow: hidden;
@@ -110,7 +114,6 @@ body {
 .embla__slide1,.embla__slide2,.embla__slide3 {
   flex: 0 0 100%;
   min-width: 0;
-  height: 100vh;
   width: 100%;
 }
 
@@ -143,7 +146,25 @@ body {
 }
 
 
+.pagination {
+    @apply flex gap-4;
+  }
 
+  .page-item {
+    @apply rounded-md px-3 md:px-4 py-1 bg-gray-200;
+  }
+
+  .page-link {
+    @apply text-gray-800 hover:bg-gray-300;
+  }
+
+  .current-page {
+    @apply bg-black;
+  }
+
+  .current-page-link {
+    @apply text-white;
+  }
 
 
 }

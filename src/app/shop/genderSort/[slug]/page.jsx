@@ -7,8 +7,12 @@ import { CiSearch } from "react-icons/ci";
 import Bycategory from "../../Bycategory";
 import Bygender from "../../Bygender";
 import LocationBar from "@/app/components/LocationBar";
+import { useCart } from "../../cart/Cart";
 
-export default function Category({ params }) {
+export default function Gender({ params }) {
+  const { addToCart } = useCart();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(9); // Number of items per page
   const prodFilter = denimData.filter(
     (denim) => denim.gender.toLowerCase().split(" ").join("-") == params.slug
   );
@@ -29,15 +33,29 @@ export default function Category({ params }) {
     setSort(e.target.value);
   }
 
-  const prodCard = prodFilter.filter((data) =>
-    data.name.toLowerCase().includes(sort.toLowerCase())
-  );
+  // const prodCard = prodFilter.filter((data) =>
+  //   data.name.toLowerCase().includes(sort.toLowerCase())
+  // );
 
-  // const prodCard = denimData.filter(
+  // Pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = prodFilter
+    .filter(
+      (data) =>
+        data.name.toLowerCase().includes(sort.toLowerCase()) ||
+        data.category.toLowerCase().includes(sort.toLowerCase())
+    )
+    .slice(indexOfFirstItem, indexOfLastItem);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // const currentItems = denimData.filter(
   //   (denim) => denim.gender.toLowerCase().split(" ").join("-") == params.slug
   // );
 
-  const denimGrp = prodCard.map((denim) => (
+  const denimGrp = currentItems.map((denim) => (
     <section
       key={denim.id}
       className="px-3  h-[50vh] sm:w-[20rem] pt-6 sm:h-[83vh] md:h-[72vh] md:w-[15rem] lg:w-[17rem]"
@@ -64,8 +82,21 @@ export default function Category({ params }) {
           <p className="text-[.7rem] sm:text-[.8rem]">&#x20A6;{denim.price}</p>
         </div>
       </Link>
+      <div className="mt-[-3.5rem] sm:mt-[-4rem] md:mt-[-3.76rem] lg:mt-[-3.9rem] z-50  w-[inherit] bg-blue-400 relative">
+        <button
+          className="border bg-slate-50 text-black absolute md:w-[13.5rem] lg:w-[15.5rem] sm:w-[18.5rem] w-[10.95rem] opacity-0 hover:opacity-80"
+          onClick={() => addToCart(denim)}
+        >
+          Quick Add
+        </button>
+      </div>
     </section>
   ));
+  // Pagination - page numbers
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(denimData.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
   return (
     <>
       <LocationBar currentUrl={"/shop"} />
@@ -131,11 +162,92 @@ export default function Category({ params }) {
         <div className="  col-span-4 lg:w-[80%] ">
           <section className=" flex flex-col justify-center items-center">
             <div className="grid grid-cols-2 md:w-[48rem] lg:w-[55rem] md:grid-cols-3 md:p-10  lg:p-14 lg:mr-16  lg:pt-0 ">
-              {prodCard == 0 ? <h2 className=" ">No items Found</h2> : denimGrp}
+              {currentItems == 0 ? <h2 className=" ">No items Found</h2> : denimGrp}
             </div>
           </section>
+
+          {/* Pagination */}
+          <ul className="pagination flex gap-5  justify-center pb-10">
+            {pageNumbers.map((number) => (
+              <li
+                key={number}
+                className={`page-item ${
+                  currentPage === number ? "current-page" : ""
+                }`}
+              >
+                <a
+                  onClick={() => paginate(number)}
+                  href="#"
+                  className={`page-link ${
+                    currentPage === number ? "current-page-link" : ""
+                  }`}
+                >
+                  {number}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>
+  );
+}
+
+export function MainGrp() {
+   const { addToCart } = useCart();
+  const prodFilter = denimData.filter((denim) =>
+    denim.gender.toLowerCase().split(" ").join("-")
+  );
+
+  const uniCard = prodFilter.filter((data) =>
+    data.gender.toLocaleLowerCase().includes("unisex")
+  );
+
+  const currentItems = uniCard
+    .slice(0, 4)
+    .filter((data) => data.name.toLowerCase());
+
+  const denimGrp = currentItems.map((denim) => (
+    <section key={denim.id} className="relative pb-14 md:pb-0 ">
+      <Link
+        href={`/shop/${denim.name.split(" ").join("-")}`}
+        className="h-[100%] flex flex-col relative" // Added flex and flex-col classes
+      >
+        <div className=" relative ">
+          <Image
+            src={denim.image}
+            alt={denim.name}
+            layout="responsive"
+            width={400}
+            height={400}
+            objectFit="cover"
+            objectPosition="top"
+            className=""
+          />
+        </div>
+
+        <div className="">
+          <h2 className=" text-[.6rem] sm:text-[.8rem]">
+            {denim.name}
+          </h2>
+          <p className="text-[.7rem] sm:text-[.8rem]">&#x20A6;{denim.price}</p>
+        </div>
+      </Link>
+      <div className="mt-[-1.7rem] sm:mt-[-2rem] md:mt-[-2.6rem] lg:mt-[-2rem] z-50  w-[inherit] bg-blue-400 relative ">
+        <button
+          className="border bg-slate-50 text-black absolute w-[100%] opacity-0 hover:opacity-80"
+          onClick={() => addToCart(denim)}
+        >
+          Quick Add
+        </button>
+      </div>
+    </section>
+  ));
+  return (
+    <div className=" ">
+      <section className=" flex flex-col justify-center items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4  gap-2">{denimGrp}</div>
+      </section>
+    </div>
   );
 }

@@ -1,16 +1,28 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { denimData } from "../page";
 import Image from "next/image";
 import Link from "next/link";
 import LocationBar from "@/app/components/LocationBar";
-import Cart, { Quantify } from "../cart/CartButton";
+import { useCart } from "../cart/Cart";
 
 export default function page({ params }) {
+       const { cartItems, setCartItems } = useCart();
+       const { totalCart, setTotalCart } = useCart();
+       const { totalItem, setTotalItem } = useCart(0);
+         const { quant, setQuant } = useCart();
+       const { addToCart } = useCart();
   const prodCard = denimData.find(
     (denim) => denim.name.split(" ").join("-") == params.product
   ); // this checks the adress bar to see if whats there is equal to the fruit.nameor anything else you want to link to
+
+   function handleQuant(e) {
+     setQuant(e.target.value);
+   }
+   useEffect(() => {
+     setQuant(1); // this is to Reset quant state to default value
+   }, [params.product]);
 
   const relatedDenim = denimData
     .filter(
@@ -114,7 +126,33 @@ export default function page({ params }) {
             </span>
           </div> */}
           {/* <Quantify/> */}
-          <Cart/>
+          <section>
+            <div className="flex pb-6">
+              <p>Quantity: &nbsp;</p>
+              <span className="">
+              
+                <input
+                  type="number"
+                  name="quant"
+                  id="quant"
+                  min={1}
+                  max={prodCard.stock}
+                  value={quant}
+                  className="bg-green-300"
+                  onChange={handleQuant}
+                />
+              </span>
+            </div>
+            <div>
+              <button
+                onClick={() => addToCart(prodCard)}
+                className="border-2 w-[70%] h-14 mb-5"
+              >
+                Add to cart
+              </button>
+            </div>
+          </section>
+
           <p className="leading-2">{prodCard.description}</p>
 
           <div>
@@ -138,8 +176,8 @@ export default function page({ params }) {
               worn-in look, your bestJeanist jeans are up for the challenge.
               Whether you&apos;re keeping them looking fresh out of the store or
               putting them through the wringer to showcase their durability,
-              proper care ensures they&apos;ll continue to excel at what they&apos;re made
-              for: being worn and keeping you comfy.
+              proper care ensures they&apos;ll continue to excel at what
+              they&apos;re made for: being worn and keeping you comfy.
             </p>
           </div>
         </section>

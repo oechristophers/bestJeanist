@@ -102,7 +102,7 @@ export const denimData = [
     image2: "/overDistressed2.webp",
     image3: "/overDistressed3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
   {
     id: 8,
@@ -116,7 +116,7 @@ export const denimData = [
     image2: "/plusBasic2.jpg",
     image3: "/plusBasic3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
 
   {
@@ -131,7 +131,7 @@ export const denimData = [
     image2: "/zipUpDress2.jpg",
     image3: "/zipUpDress3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
   {
     id: 10,
@@ -145,7 +145,7 @@ export const denimData = [
     image2: "/smockDress2.jpg",
     image3: "/smockDress3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
 
   {
@@ -160,7 +160,7 @@ export const denimData = [
     image2: "/hemShorts2.jpg",
     image3: "/hemShorts3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
   {
     id: 12,
@@ -174,7 +174,7 @@ export const denimData = [
     image2: "",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
   {
     id: 13,
@@ -188,7 +188,7 @@ export const denimData = [
     image2: "/frayHem2.jpg",
     image3: "/frayHem3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
 
   {
@@ -203,7 +203,7 @@ export const denimData = [
     image2: "/disSkirts2.jpg",
     image3: "/disSkirts3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
   {
     id: 15,
@@ -217,7 +217,7 @@ export const denimData = [
     image2: "/patchWork2.webp",
     image3: "/patchWork3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 20,
   },
   {
     id: 16,
@@ -231,7 +231,7 @@ export const denimData = [
     image2: "/washPocket2.jpg",
     image3: "/washPocket3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 17,
@@ -245,7 +245,7 @@ export const denimData = [
     image2: "/boxyFit2.webp",
     image3: "/boxyFit3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 18,
@@ -259,7 +259,7 @@ export const denimData = [
     image2: "/dirtyWash2.webp",
     image3: "/dirtyWash3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 19,
@@ -273,7 +273,7 @@ export const denimData = [
     image2: "/elasticatedShort2.jpg",
     image3: "/elasticatedShort3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 20,
@@ -287,7 +287,7 @@ export const denimData = [
     image2: "/cordShort2.webp",
     image3: "/cordShort3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 21,
@@ -301,7 +301,7 @@ export const denimData = [
     image2: "",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 22,
@@ -315,7 +315,7 @@ export const denimData = [
     image2: "/frayed2.webp",
     image3: "/frayed3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 23,
@@ -329,7 +329,7 @@ export const denimData = [
     image2: "/splitMaxi2.jpg",
     image3: "/splitMaxi2.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 24,
@@ -343,7 +343,7 @@ export const denimData = [
     image2: "/reclaimedBaggy2.webp",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 25,
@@ -357,7 +357,7 @@ export const denimData = [
     image2: "/overdyeRip2.webp",
     image3: "/overdyeRip3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 26,
@@ -371,7 +371,7 @@ export const denimData = [
     image2: "/volDress2.webp",
     image3: "/volDress3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 27,
@@ -385,7 +385,7 @@ export const denimData = [
     image2: "/petiteWide2.jpg",
     image3: "/petiteWide3.jpg",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 15,
   },
   {
     id: 28,
@@ -399,7 +399,7 @@ export const denimData = [
     image2: "/boxyFit2.webp",
     image3: "/boxyFit3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 29,
@@ -413,7 +413,7 @@ export const denimData = [
     image2: "",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 30,
@@ -427,7 +427,7 @@ export const denimData = [
     image2: "",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 31,
@@ -441,7 +441,7 @@ export const denimData = [
     image2: "/baggyFit2.webp",
     image3: "/baggyFit3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
 
   {
@@ -456,7 +456,7 @@ export const denimData = [
     image2: "/reclaimedLoose2.webp",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 33,
@@ -470,7 +470,7 @@ export const denimData = [
     image2: "/highMom2.webp",
     image3: "/highMom3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 34,
@@ -484,7 +484,7 @@ export const denimData = [
     image2: "/blackWash2.webp",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 35,
@@ -498,7 +498,7 @@ export const denimData = [
     image2: "/looseFit2.webp",
     image3: "/looseFit3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 36,
@@ -512,7 +512,7 @@ export const denimData = [
     image2: "/parachutePants2.webp",
     image3: "/parachutePants3.webp",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 37,
@@ -526,7 +526,7 @@ export const denimData = [
     image2: "",
     image3: "",
     sizes: ["XS", "S", "M", "L", "XL"],
-    stock: 10,
+    stock: 24,
   },
   {
     id: 38,

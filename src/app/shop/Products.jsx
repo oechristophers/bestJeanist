@@ -6,43 +6,56 @@ import { CiSearch } from "react-icons/ci";
 import Bycategory from "./Bycategory";
 import Bygender from "./Bygender";
 import LocationBar from "../components/LocationBar";
+import { useCart } from "./cart/Cart";
 
 export default function Product({ denimData }) {
+  const { addToCart } = useCart();
+
   const [sort, setSort] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(9); // Number of items per page
 
   function searchProd(e) {
     setSort(e.target.value);
   }
 
-  //hook must be immediately after the function
-  const [open, setOpen] = useState(true);
 
-  const [open2, setOpen2] = useState(true);
+   const [open, setOpen] = useState(true);
 
-  function controlNav() {
-    setOpen(!open);
-  }
+   const [open2, setOpen2] = useState(true);
 
-  function controlNav2() {
-    setOpen2(!open2);
-  }
+   function controlNav() {
+     setOpen(!open);
+   }
 
-  const filteredLists = denimData.filter(
-    (data) =>
-      data.name.toLowerCase().includes(sort.toLowerCase()) ||
-      data.category.toLowerCase().includes(sort.toLowerCase())
-  );
+   function controlNav2() {
+     setOpen2(!open2);
+   }
 
-  const denimCart = filteredLists.map((denim) => (
+  // Pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = denimData
+    .filter(
+      (data) =>
+        data.name.toLowerCase().includes(sort.toLowerCase()) ||
+        data.category.toLowerCase().includes(sort.toLowerCase())
+    )
+    .slice(indexOfFirstItem, indexOfLastItem);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const denimCart = currentItems.map((denim) => (
     <section
       key={denim.id}
       className="px-3  h-[50vh] sm:w-[20rem] pt-6 sm:h-[83vh] md:h-[72vh] md:w-[15rem] lg:w-[17rem]"
     >
       <Link
         href={`/shop/${denim.name.split(" ").join("-")}`}
-        className="h-[100%] flex flex-col" // Added flex and flex-col classes
+        className="h-[100%] flex flex-col -z-40"
       >
-        <div className="h-[98%] relative">
+        <div className="h-[98%] relative flex flex-col-reverse">
           <Image
             src={denim.image}
             alt={denim.name}
@@ -60,13 +73,29 @@ export default function Product({ denimData }) {
           <p className="text-[.7rem] sm:text-[.8rem]">&#x20A6;{denim.price}</p>
         </div>
       </Link>
+      <div className="mt-[-3.5rem] sm:mt-[-4rem] md:mt-[-3.76rem] lg:mt-[-3.9rem] z-50  w-[inherit] bg-blue-400 relative">
+        <button
+          className="border bg-slate-50 text-black absolute md:w-[13.5rem] lg:w-[15.5rem] sm:w-[18.5rem] w-[10.95rem] opacity-0 hover:opacity-80"
+          onClick={() => addToCart(denim)}
+        >
+          Quick Add
+        </button>
+      </div>
     </section>
   ));
 
+  // Pagination - page numbers
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(denimData.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
   return (
     <>
-    <div className=""><LocationBar currentUrl="/shop"/></div>
-      
+      <div className="">
+        <LocationBar currentUrl="/shop" />
+      </div>
+
       <div className="grid md:grid-cols-4 lg:flex w-[100%] bg-white pt-10">
         <div className=" col-span-4 lg:col-span-1 flex flex-col gap-6  lg:px-0 bg-white ml-3 mr-3 lg:mr-0">
           <section className="flex items-center border border-gray-600  w-[100%] ">
@@ -86,7 +115,7 @@ export default function Product({ denimData }) {
             <div className="grid grid-cols-2  grid-rows-2 lg:flex lg:flex-col">
               <section>
                 <nav className="col-span-1 text-center border py-4 bg-white">
-                  <button onClick={controlNav} className="" >
+                  <button onClick={controlNav} className="">
                     Category
                   </button>
 
@@ -129,13 +158,35 @@ export default function Product({ denimData }) {
         <div className="  col-span-4 lg:w-[80%] ">
           <section className=" flex flex-col justify-center items-center">
             <div className="grid grid-cols-2 md:w-[48rem] lg:w-[55rem] md:grid-cols-3 md:p-10  lg:p-14 lg:mr-16  lg:pt-0 ">
-              {filteredLists == 0 ? (
+              {currentItems.length === 0 ? (
                 <h2 className=" ">No items Found</h2>
               ) : (
                 denimCart
               )}
             </div>
           </section>
+
+          {/* Pagination */}
+          <ul className="pagination flex gap-5  justify-center pb-10">
+            {pageNumbers.map((number) => (
+              <li
+                key={number}
+                className={`page-item ${
+                  currentPage === number ? "current-page" : ""
+                }`}
+              >
+                <a
+                  onClick={() => paginate(number)}
+                  href="#"
+                  className={`page-link ${
+                    currentPage === number ? "current-page-link" : ""
+                  }`}
+                >
+                  {number}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

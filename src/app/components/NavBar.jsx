@@ -27,6 +27,12 @@ export default function NavBar() {
       <h1 className="text-[18px] lg:pl-32 font-bold">
         <Link href="/"> BESTJEANIST</Link>
       </h1>
+      {!open && (
+        <div
+          className="fixed top-0 left-0 w-screen h-screen bg-black opacity-20 z-50"
+          onClick={controlNav} // this is to close cart when you click outside of it
+        ></div>
+      )}
       <ul
         className={`md:flex md:flex-row ${
           open ? "hidden" : " flex flex-col max-w-72 mt-[-40px]"
@@ -51,7 +57,7 @@ export default function NavBar() {
           <Link href="/shop">Shop </Link>
         </li>
         <li>
-          <Link href="">Pages </Link>
+          <Link href="/blogs">Pages </Link>
         </li>
         <li>
           <Link href="/contact">Contact </Link>
@@ -79,7 +85,7 @@ export default function NavBar() {
           </Link>
         </li>
         <li>
-          <CartPage/>
+          <CartPage />
         </li>
 
         <li

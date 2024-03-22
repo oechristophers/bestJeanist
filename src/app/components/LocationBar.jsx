@@ -38,7 +38,7 @@ export default function LocationBar({currentUrl}) {
 
   
   return (
-    <div className="flex px-5 bg-gray-200">
+    <div className="flex px-5 main-bg">
         <a href="/" className="text-gray-500">
         Home
       </a>
