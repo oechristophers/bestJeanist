@@ -9,11 +9,16 @@ export const CartProvider = ({ children }) => {
   const [totalItem, setTotalItem] = useState(0);
   const [quant, setQuant] = useState(1);
 
-  const prodCard = denimData.find(
-    (denim) =>
-      denim.name.split(" ").join("-") ===
-      window.location.pathname.split("/").slice(-1)[0]
-  );
+ let prodCard;
+
+ if (typeof window !== "undefined") {
+   prodCard = denimData.find(
+     (denim) =>
+       denim.name.split(" ").join("-") ===
+       window.location.pathname.split("/").slice(-1)[0]
+   );
+ }
+
   //   const [addedItems, setAddedItems] = useState([]);
   //   const [quantity, setQuantity] = useState(0);
   //   const [cartQuant, setCartQuant] = useState(quantity);
@@ -22,12 +27,12 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (denim) => {
     // Check if the product already exists in the addedItems array
-    console.log(
-      denim.name.split(" ").join("-") ===
-        window.location.pathname.split("/").slice(-1)[0]
-    );
-    console.log(denim.name.split(" ").join("-"));
-    console.log(window.location.pathname.split("/").slice(-1)[0]);
+    // console.log(
+    //   denim.name.split(" ").join("-") ===
+    //     window.location.pathname.split("/").slice(-1)[0]
+    // );
+    // console.log(denim.name.split(" ").join("-"));
+    // console.log(window.location.pathname.split("/").slice(-1)[0]);
     
     const prodCardIndex = cartItems.findIndex(
       (item) => item.name === denim.name

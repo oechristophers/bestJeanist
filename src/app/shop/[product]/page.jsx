@@ -118,7 +118,7 @@ export default function page({ params }) {
           </div> */}
           {/* <Quantify/> */}
           <section>
-            {/* <CartButton prodCard={prodCard} params={params} product={params.product}/> */}
+            <CartButton prodCard={prodCard} params={params} product={params.product}/>
           </section>
 
           <p className="leading-2">{prodCard.description}</p>
