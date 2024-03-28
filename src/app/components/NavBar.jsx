@@ -8,7 +8,6 @@ import { GoPerson } from "react-icons/go";
 import { CiSearch } from "react-icons/ci";
 import CartPage from "../shop/cart/page";
 
-
 export default function NavBar() {
   const [open, setOpen] = useState(true);
 

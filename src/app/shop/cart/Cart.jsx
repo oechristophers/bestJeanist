@@ -17,6 +17,8 @@ export const CartProvider = ({ children }) => {
   //   const [addedItems, setAddedItems] = useState([]);
   //   const [quantity, setQuantity] = useState(0);
   //   const [cartQuant, setCartQuant] = useState(quantity);
+  
+  // Use a conditional statement that will sort based on  if the main category is active in order to render the subcategories based on the maincategories
 
   const addToCart = (denim) => {
     // Check if the product already exists in the addedItems array

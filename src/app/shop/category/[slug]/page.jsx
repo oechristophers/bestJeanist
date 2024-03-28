@@ -21,6 +21,7 @@ export default function Category({ params }) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9); // Number of items per page
+  
   function controlNav() {
     setOpen(!open);
   }
@@ -32,15 +33,8 @@ export default function Category({ params }) {
     setSort(e.target.value);
   }
 
-  // const prodCard = prodFilter.filter((data) =>
-  //   data.name.toLowerCase().includes(sort.toLowerCase())
-  // );
 
-  // const prodCard = denimData.filter(
-  //   (denim) => denim.category.toLowerCase().split(" ").join("-") == params.slug
-  // );
-
-  // Pagination
+  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = prodFilter

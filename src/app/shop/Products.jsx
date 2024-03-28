@@ -46,6 +46,7 @@ export default function Product({ denimData }) {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+ 
   const denimCart = currentItems.map((denim) => (
     <section
       key={denim.id}

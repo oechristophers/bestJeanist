@@ -5,22 +5,16 @@ import { denimData } from "../page";
 import Image from "next/image";
 import Link from "next/link";
 import LocationBar from "@/app/components/LocationBar";
-import { useCart } from "../cart/Cart";
+import CartButton from "../cart/CartButton";
 
-export default function Page({ params }) {
-         const { quant, setQuant } = useCart();
-       const { addToCart } = useCart();
+export default function page({ params }) {
+       
   const prodCard = denimData.find(
     (denim) => denim.name.split(" ").join("-") == params.product
   ); // this checks the adress bar to see if whats there is equal to the fruit.nameor anything else you want to link to
 
-   function handleQuant(e) {
-     setQuant(e.target.value);
-   }
-   useEffect(() => {
-     setQuant(1); // this is to Reset quant state to default value
-   }, [params.product]);
-
+  
+ 
   const relatedDenim = denimData
     .filter(
       (denim) =>
@@ -124,30 +118,7 @@ export default function Page({ params }) {
           </div> */}
           {/* <Quantify/> */}
           <section>
-            <div className="flex pb-6">
-              <p>Quantity: &nbsp;</p>
-              <span className="">
-              
-                <input
-                  type="number"
-                  name="quant"
-                  id="quant"
-                  min={1}
-                  max={prodCard.stock}
-                  value={quant}
-                  className="bg-green-300"
-                  onChange={handleQuant}
-                />
-              </span>
-            </div>
-            <div>
-              <button
-                onClick={() => addToCart(prodCard)}
-                className="border-2 w-[70%] h-14 mb-5"
-              >
-                Add to cart
-              </button>
-            </div>
+            <CartButton prodCard={prodCard} params={params} product={params.product}/>
           </section>
 
           <p className="leading-2">{prodCard.description}</p>

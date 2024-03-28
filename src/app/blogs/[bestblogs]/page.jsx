@@ -117,3 +117,4 @@ const blogCards = blogPosts.find((blog) => {
     </div>
   );
 }
+
