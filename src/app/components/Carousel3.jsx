@@ -52,7 +52,7 @@ export function EmblaCarousel3() {
           <Link href={`/shop/category/shorts`} className=" grid grid-cols-3">
             <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
               <Image
-                src="/frontimage16.jpg"
+                src="/frontImage16.jpg"
                 alt="slide"
                 layout="responsive"
                 width={500}
@@ -62,7 +62,7 @@ export function EmblaCarousel3() {
 
             <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
               <Image
-                src="/frontimage14.jpg"
+                src="/frontImage14.jpg"
                 alt="slide"
                 layout="responsive"
                 width={500}
@@ -72,7 +72,7 @@ export function EmblaCarousel3() {
 
             <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
               <Image
-                src="/frontimage18.jpg"
+                src="/frontImage18.jpg"
                 alt="slide"
                 layout="responsive"
                 width={500}
