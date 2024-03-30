@@ -4,39 +4,40 @@ import NavBar from "./NavBar";
 
 export default function Header() {
   const [isHomePage, setIsHomePage] = useState(
-    typeof window !== "undefined" && window.location.pathname === "/"
+    window.location.pathname === "/"
   );
-  const [isTransparent, setIsTransparent] = useState(isHomePage);
 
   useEffect(() => {
     const handleLocationChange = () => {
-      setIsHomePage(
-        typeof window !== "undefined" && window.location.pathname === "/"
-      );
+      setIsHomePage(window.location.pathname === "/" );
     };
 
     const handleScroll = () => {
       const scrollTop =
-        typeof window !== "undefined" &&
-        (window.scrollY || document.documentElement.scrollTop);
-      setIsTransparent(scrollTop === 0 && isHomePage);
+        window.scrollY || document.documentElement.scrollTop;
+      setIsHomePage(scrollTop === 0 && isHomePage);
     };
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll);
-      window.addEventListener("popstate", handleLocationChange);
-      document.body.addEventListener("click", handleLinkClick);
+    window.addEventListener("scroll", handleScroll);
 
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-        window.removeEventListener("popstate", handleLocationChange);
-        document.body.removeEventListener("click", handleLinkClick);
-      };
-    }
-  }, [isHomePage]);
+    // Subscribe to changes in location (back/forward clicks)
+    window.addEventListener("popstate", handleLocationChange);
+
+    // Subscribe to link clicks
+    document.body.addEventListener("click", handleLinkClick);
+
+    // Unsubscribe when component unmounts
+    return () => {
+      window.removeEventListener("popstate", handleLocationChange);
+      document.body.removeEventListener("click", handleLinkClick);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleLinkClick = (event) => {
+    // Check if the clicked element is a link
     if (event.target.tagName === "A") {
+      // Check if it's an internal link
       const href = event.target.getAttribute("href");
       if (href && href.startsWith("/") && !href.startsWith("//")) {
         setIsHomePage(href === "/");
@@ -47,9 +48,7 @@ export default function Header() {
   return (
     <div
       className={` max-w-[100%] sticky top-0 z-10 headert ${
-        isHomePage && isTransparent
-          ? "header_main-page  text-white hover:text-black"
-          : "bg-white"
+        isHomePage ? "header_main-page  text-white hover:text-black" : "bg-white"
       }`}
     >
       <NavBar />
