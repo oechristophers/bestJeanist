@@ -21,7 +21,7 @@ export default async function FetchApi() {
    )
   return (
     <div>
-        <h2>Total number</h2>
+        <h2>Total number countries</h2>
     </div>
   )
 }
