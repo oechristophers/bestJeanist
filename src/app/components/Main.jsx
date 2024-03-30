@@ -111,7 +111,7 @@ export default function Main() {
           >
             <div className=" relative ">
               <Image
-                src="/frontimage.jpg"
+                src="/frontimage4.jpg"
                 layout="responsive"
                 width={400}
                 height={400}
