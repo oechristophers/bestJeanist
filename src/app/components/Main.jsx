@@ -1,4 +1,5 @@
 // Only footer and header will be part of the layout, the rest will be in page
+"use client"
 import React from "react";
 import { EmblaCarousel } from "./MainCarousel";
 import Image from "next/image";

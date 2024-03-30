@@ -4,20 +4,19 @@ import NavBar from "./NavBar";
 
 export default function Header() {
   const isClientSide = typeof window !== "undefined";
-  
   const [isHomePage, setIsHomePage] = useState(
     window.location.pathname === "/"
   );
   const [isTransparent, setIsTransparent] = useState(isHomePage);
 
   useEffect(() => {
-    if (!isClientSide) return;
     const handleLocationChange = () => {
-      setIsHomePage(window.location.pathname === "/");
+      setIsHomePage(window.location.pathname === "/" );
     };
 
     const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollTop =
+        window.scrollY || document.documentElement.scrollTop;
       setIsTransparent(scrollTop === 0 && isHomePage);
     };
 
@@ -35,7 +34,7 @@ export default function Header() {
       document.body.removeEventListener("click", handleLinkClick);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isHomePage, isClientSide]);
+  }, []);
 
   const handleLinkClick = (event) => {
     // Check if the clicked element is a link
