@@ -22,7 +22,7 @@ export default function Contact() {
     alert(`Name: ${name} \n Email: ${email} \n Message:${message}`);
   };
   return (
-    <div className="bg-white pt-10">
+    <div className="pt-10">
       <div className="flex w-[100%] px-10 mt-4 flex-wrap">
         <section className="md:w-[40%] gap-6 flex flex-col w-[100vw]">
           <h2 className="text-2xl">Contact Us</h2>

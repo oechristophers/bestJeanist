@@ -11,16 +11,17 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className='bg-black text-white'>
+    <footer className="footer">
       <div className="px-4 lg:flex lg:gap-12 md:justify-center md:pl-20 lg:px-28 py-20 ">
         <article className="flex gap-10 w-[100%]">
           <section className="w-[50%]">
-            <h3 className="text-[18px]">
-             <Link href='/'>BESTJEANIST</Link>
+            <h3 className="text-[18px] font-semibold">
+              <Link href="/">BESTJEANIST</Link>
             </h3>
             <br />
             <p className="w-[25ch]  footer_small">
-              © {new Date().getFullYear()} designed and developed by oechristophers. Powered by React.
+              © {new Date().getFullYear()} designed and developed by
+              oechristophers. Powered by React.
             </p>
           </section>
 
@@ -37,17 +38,17 @@ export default function Footer() {
 
         <article className="flex gap-10 w-[100%] mt-16 lg:mt-1 footer_small  footer_small_pad">
           <section className=" w-[50%] ">
-            GET 32% OFF
+            <p className="font-semibold">GET 32% OFF</p>
             <br />
             <br />
             By subscribe to our newsletter
             <br />
             <br />
-            <SignUp/>
+            <SignUp />
           </section>
 
           <section className="w-[50%]">
-            FOLLOW US ON
+            <h3 className="font-semibold">FOLLOW US ON</h3>
             <br />
             <br />
             <div className="flex gap-4 text-2xl footer_small-icon">

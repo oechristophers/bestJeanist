@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
       
-      <body className={` bg-white text-black ${inter.className}`} >
+      <body className={` body text-black ${inter.className}`} >
         <CartProvider>   
           <Header/>
 

@@ -68,12 +68,12 @@ export default function page({ params }) {
   //Use usestate to handle the 2 and 3 images , such that when they are hovered or clicked, it becomes the bigger displayed image. Get inspo from asos and boohooMan
 
   return (
-    <div className="bg-white">
-      <div className="px-6 bg-gray-100">
+    <div className="">
+      <div className="px-6 ">
         <LocationBar currentUrl={"/shop/" + prodCard.name} />
       </div>
 
-      <div className="md:grid md:grid-cols-2 gap-0 px-6 relative bg-gray-100">
+      <div className="md:grid md:grid-cols-2 gap-0 px-6 relative ">
         <section className="md:col-span-1  md:mr-6 relative">
           <div className="">
             <Image
@@ -158,7 +158,7 @@ export default function page({ params }) {
             <span className="w-[80%] border-b-2 lg:w-[85%] border-slate-400"></span>
           </div>
 
-          <div className="flex lg:px-16 lg:h-[90vh] bg-gray-100">
+          <div className="flex lg:px-16 lg:h-[90vh] ">
             {relatedCategory}
           </div>
         </section>

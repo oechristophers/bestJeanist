@@ -53,7 +53,7 @@ export default function Main() {
 
   const cutBlog = relatedCategory.slice(0, 3);
   return (
-    <div className="min-h-screen my-auto bg-white ">
+    <div className="min-h-screen my-auto mt-[-5%]">
       <EmblaCarousel />
 
       <div className="grid grid-cols-2 md:grid-cols-4 mt-5 gap-x-2 gap-10 pb-10 ">
@@ -81,7 +81,10 @@ export default function Main() {
         </section>
 
         <section className="relative">
-          <Link href="/" className="h-[100%] flex flex-col relative">
+          <Link
+            href="/shop/category/skirts"
+            className="h-[100%] flex flex-col relative"
+          >
             <div className=" relative ">
               <Image
                 src="/frontImage19.jpg"
@@ -101,7 +104,10 @@ export default function Main() {
         </section>
 
         <section className="relative">
-          <Link href="/" className="h-[100%] flex flex-col relative">
+          <Link
+            href="/shop/category/pants"
+            className="h-[100%] flex flex-col relative"
+          >
             <div className=" relative ">
               <Image
                 src="/frontimage.jpg"
@@ -121,7 +127,10 @@ export default function Main() {
         </section>
 
         <section className="relative">
-          <Link href="/" className="h-[100%] flex flex-col relative">
+          <Link
+            href="/shop/category/dresses"
+            className="h-[100%] flex flex-col relative"
+          >
             <div className=" relative ">
               <Image
                 src="/frontImage13.jpg"
@@ -207,9 +216,7 @@ export default function Main() {
 
       <section className="pb-10 ">
         <h2 className="text-5xl font-bold pl-5">BestJeanist News</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3">
-         {cutBlog}
-        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3">{cutBlog}</div>
       </section>
     </div>
   );

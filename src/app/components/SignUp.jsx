@@ -21,7 +21,7 @@ const handleSubmit = (event) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter Your Email"
-        className="text-black w-60 h-10 pl-5 relative outline-none"
+        className="text-black w-60 h-10 pl-5 relative border-2 border-black"
       />
 
       <button

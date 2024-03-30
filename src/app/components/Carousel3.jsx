@@ -12,10 +12,7 @@ export function EmblaCarousel3() {
     <div className="embla max-h-[107vh] pb-10" ref={emblaRef}>
       <div className="embla__container">
         <div className="embla__slide1">
-          <Link
-            href={`/shop/${"Revigour vintage Skate Jean".split(" ").join("-")}`}
-            className=" grid grid-cols-3"
-          >
+          <Link href={`/shop/category/shorts`} className=" grid grid-cols-3">
             <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
               <Image
                 src="/femshorts.jpg"
@@ -45,15 +42,14 @@ export function EmblaCarousel3() {
                 height={400}
               />
             </section>
-            <button className="z-50 mt-[-18rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">Reclaimed Lifestyle Jorts</button>
+            <button className="z-50 mt-[-18rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
+              Reclaimed Lifestyle Jorts
+            </button>
           </Link>
         </div>
 
         <div className="embla__slide2 ">
-          <Link
-            href={`/shop/${"Revigour vintage Skate Jean".split(" ").join("-")}`}
-            className=" grid grid-cols-3"
-          >
+          <Link href={`/shop/category/shorts`} className=" grid grid-cols-3">
             <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
               <Image
                 src="/frontimage16.jpg"
@@ -62,7 +58,6 @@ export function EmblaCarousel3() {
                 width={500}
                 height={400}
               />
-              
             </section>
 
             <section className="font-bold text-5xl text-transparent bg-gradient-to-b from-green-600 via-green-200 to-green-100 bg-clip-text ">
@@ -84,7 +79,9 @@ export function EmblaCarousel3() {
                 height={400}
               />
             </section>
-            <button className="z-50 mt-[-18rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">Reclaimed Lifestyle Jorts</button>
+            <button className="z-50 mt-[-18rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
+              Reclaimed Lifestyle Jorts
+            </button>
           </Link>
         </div>
       </div>

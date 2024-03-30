@@ -3,7 +3,7 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="px-10 md:px-10 flex flex-col justify-center py-20 bg-gray-50">
+    <div className="px-10 md:px-10 flex flex-col justify-center py-20 ">
       <section className="">
         <h2 className="flex justify-start text-2xl mt-6">Made Different </h2>
 
@@ -27,7 +27,7 @@ export default function About() {
         </p>
 
         <div className="grid grid-cols-2 gap-3 mt-10">
-          <section className="relative bg-green-400 col-span-1 h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-[33rem]">
+          <section className="relative  col-span-1 h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-[33rem]">
             <Image
               src="/lagos.jpg"
               alt="Lagos"

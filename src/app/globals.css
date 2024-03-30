@@ -29,20 +29,46 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-   
   }
 
- 
+  .body {
+    background: #fff;
+  }
   .cart-small {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: whitesmoke;
+    color: black;
+    height: 100vh;
+    width: 100vw;
+    padding-left: 0.75rem;
+  }
+  .link_text {
+    font-family: adelle-sans, sans-serif;
+    font-weight: 400;
+  }
+
+  .header,
+  .footer {
+    background: #fff;
+    color: #2c2b29;
+    font-family: adelle-sans, sans-serif;
+    font-weight: 400;
+  }
+
+   @media screen and (max-width: 1023px) {
+  .header_small {
       position: fixed;
-      top: 0;
-      right: 0;
+      top: 2.5rem;
+      left: 0;
       background-color: whitesmoke;
-      color:black;
+      color: black;
       height: 100vh;
       width: 100vw;
       padding-left: 0.75rem;
     }
+  }
 
   @media screen and (max-width: 760px) {
     .header_small {
@@ -50,17 +76,17 @@ body {
       top: 2.5rem;
       left: 0;
       background-color: whitesmoke;
-      color:black;
+      color: black;
       height: 100vh;
       width: 100vw;
       padding-left: 0.75rem;
     }
-     .cart-small {
+    .cart-small {
       position: fixed;
       top: 2.5rem;
       right: 0;
       background-color: whitesmoke;
-      color:black;
+      color: black;
       height: 100vh;
       width: 100vw;
       padding-left: 0.75rem;
@@ -99,25 +125,27 @@ body {
   }
   .aspect-w-16 {
     width: 100%;
-    padding-top: 56.25%; 
+    padding-top: 56.25%;
   }
-  .main-bg{
+  .main-bg {
     background: rgba(235, 231, 231, 0.868);
   }
 
   .embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide1,.embla__slide2,.embla__slide3 {
-  flex: 0 0 100%;
-  min-width: 0;
-  width: 100%;
-}
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+  }
+  .embla__slide1,
+  .embla__slide2,
+  .embla__slide3 {
+    flex: 0 0 100%;
+    min-width: 0;
+    width: 100%;
+  }
 
-/* .embla__slide1{
+  /* .embla__slide1{
   background:image-set("/frontcollage.webp");
   background-size: cover;
   background-position: 'center';
@@ -140,13 +168,12 @@ body {
   width: 100%;
 } */
 
-.responsive-image {
-  max-width: inherit;
-  height:fit-content ;
-}
+  .responsive-image {
+    max-width: inherit;
+    height: fit-content;
+  }
 
-
-.pagination {
+  .pagination {
     @apply flex gap-4;
   }
 
@@ -166,5 +193,17 @@ body {
     @apply text-white;
   }
 
+  .headert {
+  transition: background-color 0.4s ease;
+}
+.header_main-page {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.556), rgba(0,0,0,0)); /* Gradient from black to transparent */
+}
+.header_main-page:hover {
+  background:#fff /* Gradient from black to transparent */
+}
+.transparent-header {
+  background-color: transparent;
+}
 
 }
