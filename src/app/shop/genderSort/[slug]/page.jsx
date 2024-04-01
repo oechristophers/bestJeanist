@@ -56,39 +56,45 @@ export default function Gender({ params }) {
   // );
 
   const denimGrp = currentItems.map((denim) => (
-    <section
-      key={denim.id}
-      className="px-3  h-[50vh] sm:w-[20rem] pt-6 sm:h-[83vh] md:h-[72vh] md:w-[15rem] lg:w-[17rem]"
-    >
-      <Link
-        href={`/shop/${denim.name.split(" ").join("-")}`}
-        className="h-[100%] flex flex-col" // Added flex and flex-col classes
-      >
-        <div className="h-[98%] relative">
-          <Image
-            src={denim.image}
-            alt={denim.name}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-            className=""
-          />
+    <section key={denim.id} className="px-1 pt-10 pb-10 ">
+      <div className="h-[100%] flex flex-col z-0">
+        <div className="h-[98%] relative flex flex-col card_cart ">
+          <Link
+            href={`/shop/${denim.name.split(" ").join("-")}`}
+            className="h-[100%] flex flex-col z-0"
+          >
+            <Image
+              src={denim.image}
+              alt={denim.name}
+              layout="responsive"
+              width={400}
+              height={400}
+              objectFit="cover"
+              objectPosition="top"
+              className=""
+            />
+          </Link>
+          <section className="z-50 mt-[-2rem] pb-3 w-[100%] px-3 flex justify-center">
+            <button
+              className="border cartt w-[inherit] hover:text-white  rounded-lg"
+              onClick={() => addToCart(denim)}
+            >
+              Quick Add
+            </button>
+          </section>
         </div>
 
         <div className="">
-          <h2 className=" text-[.6rem] sm:text-[.8rem] md:text-[.7rem] lg:text-[.8rem]">
-            {denim.name}
-          </h2>
+          <Link
+            href={`/shop/${denim.name.split(" ").join("-")}`}
+            className=" hover:underline p-1"
+          >
+            <h2 className=" text-[.6rem] sm:text-[.8rem] md:text-[.7rem] lg:text-[.8rem]">
+              {denim.name}
+            </h2>
+          </Link>
           <p className="text-[.7rem] sm:text-[.8rem]">&#x20A6;{denim.price}</p>
         </div>
-      </Link>
-      <div className="mt-[-3.5rem] sm:mt-[-4rem] md:mt-[-3.76rem] lg:mt-[-3.9rem] z-50  w-[inherit] bg-blue-400 relative">
-        <button
-          className="border bg-slate-50 text-black absolute md:w-[13.5rem] lg:w-[15.5rem] sm:w-[18.5rem] w-[10.95rem] opacity-0 hover:opacity-80"
-          onClick={() => addToCart(denim)}
-        >
-          Quick Add
-        </button>
       </div>
     </section>
   ));
@@ -208,38 +214,45 @@ export function MainGrp() {
     .filter((data) => data.name.toLowerCase());
 
   const denimGrp = currentItems.map((denim) => (
-    <section key={denim.id} className="relative pb-14 md:pb-0 ">
-      <Link
-        href={`/shop/${denim.name.split(" ").join("-")}`}
-        className="h-[100%] flex flex-col relative" // Added flex and flex-col classes
-      >
-        <div className=" relative ">
-          <Image
-            src={denim.image}
-            alt={denim.name}
-            layout="responsive"
-            width={400}
-            height={400}
-            objectFit="cover"
-            objectPosition="top"
-            className=""
-          />
+    <section key={denim.id} className="px-1 pt-10 pb-10 ">
+      <div className="h-[100%] flex flex-col z-0">
+        <div className="h-[98%] relative flex flex-col card_cart ">
+          <Link
+            href={`/shop/${denim.name.split(" ").join("-")}`}
+            className="h-[100%] flex flex-col z-0"
+          >
+            <Image
+              src={denim.image}
+              alt={denim.name}
+              layout="responsive"
+              width={400}
+              height={400}
+              objectFit="cover"
+              objectPosition="top"
+              className=""
+            />
+          </Link>
+          <section className="z-50 mt-[-2rem] pb-3 w-[100%] px-3 flex justify-center">
+            <button
+              className="border cartt w-[inherit] hover:text-white  rounded-lg"
+              onClick={() => addToCart(denim)}
+            >
+              Quick Add
+            </button>
+          </section>
         </div>
 
-        <div className="">
-          <h2 className=" text-[.6rem] sm:text-[.8rem]">
-            {denim.name}
-          </h2>
+        <div className=" leading-3">
+          <Link
+            href={`/shop/${denim.name.split(" ").join("-")}`}
+            className=" hover:underline p-1"
+          >
+            <h2 className=" text-[.6rem] sm:text-[.8rem] md:text-[.7rem] lg:text-[.8rem]">
+              {denim.name}
+            </h2>
+          </Link>
           <p className="text-[.7rem] sm:text-[.8rem]">&#x20A6;{denim.price}</p>
         </div>
-      </Link>
-      <div className="mt-[-1.7rem] sm:mt-[-2rem] md:mt-[-2.6rem] lg:mt-[-2rem] z-50  w-[inherit] bg-blue-400 relative ">
-        <button
-          className="border bg-slate-50 text-black absolute w-[100%] opacity-0 hover:opacity-80"
-          onClick={() => addToCart(denim)}
-        >
-          Quick Add
-        </button>
       </div>
     </section>
   ));

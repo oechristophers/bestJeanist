@@ -46,7 +46,7 @@ body {
   }
   .link_text {
     font-family: adelle-sans, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   .header,
@@ -128,8 +128,27 @@ body {
     padding-top: 56.25%;
   }
   .main-bg {
-    background: rgba(235, 231, 231, 0.868);
+    background: whitesmoke;
+    height: 50px;
+    padding-top: .7rem;
   }
+
+   .cartt {
+    opacity: 0;
+    background: linear-gradient(to right, white 50%, black 50%);
+    background-size: 200% 100%;
+    transition: background-position 0.5s, opacity 0.4s;
+  }
+
+  .cartt:hover {
+    background-position: -100% 0;
+  }
+
+.card_cart:hover .cartt {
+  opacity: 1;
+ 
+}
+
 
   .embla {
     overflow: hidden;

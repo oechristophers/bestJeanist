@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { denimData } from '../shop/page';
 
 
@@ -8,7 +8,19 @@ import { denimData } from '../shop/page';
 export default function LocationBar({currentUrl}) {
  
 
-  //  const currentUrl = window.location.pathname
+  const [isSticky, setIsSticky] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollTo(scrollY === 0);
+      setIsSticky(currentScrollPos > prevScrollPos);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
 
   //  Split the URL into segments
    const segments = currentUrl.split("/").filter((segment) => segment !== "");
@@ -38,8 +50,8 @@ export default function LocationBar({currentUrl}) {
 
   
   return (
-    <div className="flex px-5 main-bg">
-        <a href="/" className="text-gray-500">
+    <div className={`flex px-5 main-bg ${prevScrollPos? "sticky " : ""}`}>
+      <a href="/" className="text-gray-500">
         Home
       </a>
       <span className="text-[.8rem] pt-1 text-gray-500">&nbsp;||&nbsp;</span>

@@ -25,7 +25,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="grid grid-cols-3 pt-2 pb-2 uppercase text-[13px] link_text px-6">
+    <nav className="grid grid-cols-3 pt-2 pb-1 uppercase  text-[12px] link_text px-6">
       {!open && (
         <div
           className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-50"
@@ -33,18 +33,20 @@ export default function NavBar() {
         ></div>
       )}
       <ul className="lg:hidden mt-3">
-         <li
-        className={`lg:hidden cursor-pointer ${open ? "flex text-2xl" : "hidden"}`}
-        onClick={controlNav}
-      >
-        <RxHamburgerMenu />
-      </li>
+        <li
+          className={`lg:hidden cursor-pointer ${
+            open ? "flex text-2xl" : "hidden"
+          }`}
+          onClick={controlNav}
+        >
+          <RxHamburgerMenu />
+        </li>
       </ul>
-     
+
       <ul
         className={`lg:flex lg:flex-row mt-3  ${
           open ? "hidden" : " flex flex-col max-w-72 mt-[-40px]"
-        } lg:flex lg:gap-10 md:gap-7 gap-6 flex-grow header_small  shadow-md md:shadow-[0] ease-in-out z-[60]`}
+        } lg:flex lg:gap-10 md:gap-7 gap-6 flex-grow header_small shadow-md md:shadow-[0] ease-in-out z-[60]`}
       >
         <li
           className={` lg:hidden ${
@@ -56,20 +58,22 @@ export default function NavBar() {
           <Link href="/"> BESTJEANIST</Link>
 
           <span
-            className={`md:hidden cursor-pointer ${open ? "hidden" : "flex ml-6"}`}
+            className={`md:hidden cursor-pointer ${
+              open ? "hidden" : "flex ml-6"
+            }`}
             onClick={controlNav}
           >
             <RxCross1 />
           </span>
         </li>
 
-        <li>
+        <li className="hover:border-b-2 border-black ">
           <Link href="/shop">Shop </Link>
         </li>
-        <li>
+        <li className="hover:border-b-2 border-black">
           <Link href="/blogs">Pages </Link>
         </li>
-        <li>
+        <li className="hover:border-b-2 border-black">
           <Link href="/about">About </Link>
         </li>
         <li className="block lg:hidden">Search</li>
