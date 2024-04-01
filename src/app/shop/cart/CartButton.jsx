@@ -33,7 +33,7 @@ export default function CartButton({ prodCard, params, product }) {
       <div>
         <button
           onClick={() => addToCart(prodCard)}
-          className="border-2 w-[70%] h-14 mb-5"
+          className="border bg-white border-black w-[70%] h-14 mb-5 slugcartt font-bold uppercase hover:text-white text-[.9rem]"
         >
           Add to cart
         </button>

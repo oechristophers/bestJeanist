@@ -8,19 +8,19 @@ import { denimData } from '../shop/page';
 export default function LocationBar({currentUrl}) {
  
 
-  const [isSticky, setIsSticky] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  // const [isSticky, setIsSticky] = useState(false);
+  // const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollTo(scrollY === 0);
-      setIsSticky(currentScrollPos > prevScrollPos);
-      setPrevScrollPos(currentScrollPos);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollPos = window.scrollTo(scrollY === 0);
+  //     setIsSticky(currentScrollPos > prevScrollPos);
+  //     setPrevScrollPos(currentScrollPos);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [prevScrollPos]);
 
   //  Split the URL into segments
    const segments = currentUrl.split("/").filter((segment) => segment !== "");
@@ -50,7 +50,7 @@ export default function LocationBar({currentUrl}) {
 
   
   return (
-    <div className={`flex px-5 main-bg ${prevScrollPos? "sticky " : ""}`}>
+    <div className={`flex px-5 main-bg `}>
       <a href="/" className="text-gray-500">
         Home
       </a>

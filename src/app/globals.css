@@ -143,6 +143,15 @@ body {
   .cartt:hover {
     background-position: -100% 0;
   }
+   .slugcartt {
+    background: linear-gradient(to right, white 50%, black 50%);
+    background-size: 200% 100%;
+    transition: background-position 0.5s, opacity 0.4s;
+  }
+
+  .slugcartt:hover {
+    background-position: -100% 0;
+  }
 
 .card_cart:hover .cartt {
   opacity: 1;
