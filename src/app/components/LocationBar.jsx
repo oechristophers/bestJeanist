@@ -32,14 +32,14 @@ export default function LocationBar({currentUrl}) {
            <section key={index}>
              <a
                href={url}
-               className={`capitalize ${
+               className={` uppercase   ${
                  index < segments.length - 1 ? "text-gray-500" : "text-black"
                }`}
              >
                {segment}
              </a>
              {index < segments.length - 1 && (
-               <span className="text-[.8rem] pt-1 text-gray-500 ml-[-3px]">
+               <span className="text-[.8rem]  text-gray-500 ml-[-3px]">
                  &nbsp;||&nbsp;
                </span>
              )}
@@ -50,11 +50,13 @@ export default function LocationBar({currentUrl}) {
 
   
   return (
-    <div className={`flex px-5 main-bg `}>
-      <a href="/" className="text-gray-500">
+    <div className={`flex px-5 main-bg uppercase`}>
+      <a href="/" className="text-gray-500 text-[.7rem] md:text-[.8rem]">
         Home
       </a>
-      <span className="text-[.8rem] pt-1 text-gray-500">&nbsp;||&nbsp;</span>
+      <span className="text-[.8rem] text-gray-500">
+        &nbsp;||&nbsp;
+      </span>
       {locations}
     </div>
   );

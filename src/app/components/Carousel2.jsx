@@ -15,7 +15,7 @@ export function EmblaCarousel2() {
           <Link href="">
             <section>
               <Image
-                src="/frontimage6.jpg"
+                src="/frontImage6.jpg"
                 alt="slide"
                 layout="responsive"
                 width={500}
@@ -36,7 +36,7 @@ export function EmblaCarousel2() {
           <Link href="">
             <section>
               <Image
-                src="/frontimg.jpg"
+                src="/frontImg.jpg"
                 alt="slide"
                 layout="responsive"
                 width={500}

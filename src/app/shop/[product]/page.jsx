@@ -8,13 +8,10 @@ import LocationBar from "@/app/components/LocationBar";
 import CartButton from "../cart/CartButton";
 
 export default function page({ params }) {
-       
   const prodCard = denimData.find(
     (denim) => denim.name.split(" ").join("-") == params.product
   ); // this checks the adress bar to see if whats there is equal to the fruit.nameor anything else you want to link to
 
-  
- 
   const relatedDenim = denimData
     .filter(
       (denim) =>
@@ -24,36 +21,48 @@ export default function page({ params }) {
     .sort((a, b) => b.price - a.price);
 
   const relatedCategory = relatedDenim.map((denim) => (
-    <section
-      key={denim.id}
-      className="mx-auto my-auto mt-6 px-4 w-[40%] lg:w-[32%] h-[40vh] sm:h-[60vh]  "
-    >
-      <Link
-        href={`/shop/${denim.name.split(" ").join("-")}`}
-        className=" w-[100%]"
-      >
-        <section className="md:col-span-1 md:mr-6 relative">
-          <div className="">
+    <section key={denim.id} className="px-1 pt-10 pb-10 ">
+      <div className="h-[100%] flex flex-col z-0 ">
+        <div className="h-[98%] relative flex flex-col card_cart ">
+          <Link
+            href={`/shop/${denim.name.split(" ").join("-")}`}
+            className="h-[100%] flex flex-col z-0 "
+          >
             <Image
               src={denim.image}
               alt={denim.name}
               layout="responsive"
-              width="500"
-              height="500"
+              width={400}
+              height={400}
               objectFit="cover"
-              className="object-top"
+              objectPosition="top"
+              className=""
             />
-          </div>
-        </section>
+          </Link>
+          <section className="z-50 mt-[-2rem] pb-3 w-[100%] px-3 flex justify-center">
+            <button
+              className="border cartt w-[inherit] hover:text-white  rounded-lg"
+              onClick={() => addToCart(denim)}
+            >
+              Quick Add
+            </button>
+          </section>
+        </div>
 
-        <h2 className="text-[.4rem] md:text-[.7rem] uppercase mt-2 font-bold text-red-500">
-          {denim.name}
-        </h2>
-
-        <p className=" text-red-500  font-semibold text-[.5rem] md:text-[.7rem]">
-          &#x20A6;{`${denim.price}`}
-        </p>
-      </Link>
+        <div className=" flex flex-col gap-0">
+          <Link
+            href={`/shop/${denim.name.split(" ").join("-")}`}
+            className=" hover:underline p-1"
+          >
+            <h2 className=" text-[1rem] sm:text-[.8rem] md:text-[.7rem] lg:text-[.8rem]">
+              {denim.name}
+            </h2>
+          </Link>
+          <p className="text-[.8rem] sm:text-[.8rem] text-red-500">
+            &#x20A6;{denim.price}
+          </p>
+        </div>
+      </div>
     </section>
   ));
 
@@ -66,11 +75,11 @@ export default function page({ params }) {
     </button>
   ));
   //Use usestate to handle the 2 and 3 images , such that when they are hovered or clicked, it becomes the bigger displayed image. Get inspo from asos and boohooMan
-
+  const shopUrl = "/shop/";
   return (
     <div className="">
-      <div className="px-6 ">
-        <LocationBar currentUrl={"/shop/" + prodCard.name} />
+      <div className="px-6 text-[.7rem] md:text-[.8rem] ">
+        <LocationBar currentUrl={shopUrl + prodCard.name} />
       </div>
 
       <div className="md:grid md:grid-cols-2 gap-0 px-6 relative ">
@@ -118,7 +127,11 @@ export default function page({ params }) {
           </div> */}
           {/* <Quantify/> */}
           <section>
-            <CartButton prodCard={prodCard} params={params} product={params.product}/>
+            <CartButton
+              prodCard={prodCard}
+              params={params}
+              product={params.product}
+            />
           </section>
 
           <p className="leading-2">{prodCard.description}</p>
@@ -158,7 +171,7 @@ export default function page({ params }) {
             <span className="w-[80%] border-b-2 lg:w-[85%] border-slate-400"></span>
           </div>
 
-          <div className="flex lg:px-16 lg:h-[90vh] ">
+          <div className=" grid grid-cols-1 sm:grid-cols-3 md:mx-auto  lg:px-16 md:w-[85%] lg:w-[95%] lg:gap-10">
             {relatedCategory}
           </div>
         </section>
@@ -166,4 +179,3 @@ export default function page({ params }) {
     </div>
   );
 }
-

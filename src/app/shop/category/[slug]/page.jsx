@@ -8,7 +8,6 @@ import Bycategory from "../../Bycategory";
 import Bygender from "../../Bygender";
 import LocationBar from "@/app/components/LocationBar";
 
-
 export default function Category({ params }) {
   const prodFilter = denimData.filter(
     (denim) => denim.category.toLowerCase().split(" ").join("-") == params.slug
@@ -20,8 +19,8 @@ export default function Category({ params }) {
   const [open2, setOpen2] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(9); // Number of items per page
-  
+  const [itemsPerPage] = useState(8); // Number of items per page
+
   function controlNav() {
     setOpen(!open);
   }
@@ -33,8 +32,15 @@ export default function Category({ params }) {
     setSort(e.target.value);
   }
 
-
   // Pagination logic
+  const totalItems = prodFilter.filter(
+    (data) =>
+      data.name.toLowerCase().includes(sort.toLowerCase()) ||
+      data.category.toLowerCase().includes(sort.toLowerCase())
+  ).length;
+
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = prodFilter
@@ -77,30 +83,37 @@ export default function Category({ params }) {
           </section>
         </div>
 
-        <div className="">
+        <div className=" flex flex-col gap-0">
           <Link
             href={`/shop/${denim.name.split(" ").join("-")}`}
             className=" hover:underline p-1"
           >
-            <h2 className=" text-[.6rem] sm:text-[.8rem] md:text-[.7rem] lg:text-[.8rem]">
+            <h2 className=" text-[.75rem] md:text-[.7rem] lg:text-[.8rem]">
               {denim.name}
             </h2>
           </Link>
-          <p className="text-[.7rem] sm:text-[.8rem]">&#x20A6;{denim.price}</p>
+          <p className="text-[.65rem] sm:text-[.8rem] pl-1">
+            &#x20A6;{denim.price}
+          </p>
         </div>
       </div>
     </section>
   ));
+
   // Pagination - page numbers
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(denimData.length / itemsPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
+
   return (
     <>
-      <LocationBar currentUrl={"/shop"} />
-      <div className="grid md:grid-cols-4 lg:flex w-[100%] bg-white pt-10">
-        <div className=" col-span-4 lg:col-span-1 flex flex-col gap-6  lg:px-0 bg-white ml-3 mr-3 lg:mr-0">
+      <div className="text-[.7rem] md:text-[.8rem] uppercase">
+        <LocationBar currentUrl={"/shop"} />
+      </div>
+
+      <div className="grid md:grid-cols-5 pt-10 px-3 gap-x-1">
+        <div className=" col-span-4 md:col-span-1 flex flex-col gap-6  ">
           <section className="flex items-center border border-gray-600  w-[100%] ">
             <input
               type="text"
@@ -114,16 +127,19 @@ export default function Category({ params }) {
             <CiSearch />
           </section>
 
-          <section className="w-[100%] lg:flex lg:flex-col relative z-50 lg:z-0 md:h-4 h-24 lg:h-10">
-            <div className="grid grid-cols-2  grid-rows-2 lg:flex lg:flex-col">
+          <section className="w-[100%] md:flex md:flex-col relative z-40 md:z-0 h-14 md:h-10 pb-2">
+            <div className="grid grid-cols-2  grid-rows-2 md:flex md:flex-col">
               <section>
-                <nav className="col-span-1 text-center border py-4">
-                  <button onClick={controlNav} className="">
+                <nav className="col-span-1 text-center border py-4  bg-white">
+                  <button
+                    onClick={controlNav}
+                    className="h-2 uppercase text-[.8rem] font-semibold"
+                  >
                     Category
                   </button>
 
                   <ul
-                    className={`lg:block border-t leading-8 border mt-4 lg:mt-2 ${
+                    className={`md:block border-t leading-8 border mt-4 md:mt-2 uppercase text-[.7rem] ${
                       open
                         ? "hidden"
                         : "block border border-t-0 leading-8 mt-4 "
@@ -139,10 +155,15 @@ export default function Category({ params }) {
               </section>
 
               <section>
-                <nav className="col-span-1 justify-end items-end text-center border z-20 py-4">
-                  <button onClick={controlNav2}>Gender</button>
+                <nav className="col-span-1 justify-end items-end text-center border z-20 py-4  bg-white">
+                  <button
+                    onClick={controlNav2}
+                    className=" uppercase text-[.8rem] font-semibold"
+                  >
+                    Gender
+                  </button>
                   <ul
-                    className={`lg:block border-t leading-8 border mt-4 lg:mt-2 ${
+                    className={`md:block border-t leading-8 border mt-4 md:mt-2 uppercase text-[.7rem] ${
                       open2
                         ? "hidden"
                         : "flex flex-col border border-t-0 col-start-2 leading-8"
@@ -158,14 +179,19 @@ export default function Category({ params }) {
           </section>
         </div>
 
-        <div className="  col-span-4 lg:w-[80%] ">
-          <section className=" flex flex-col justify-center items-center">
-            <div className="grid grid-cols-2 md:w-[48rem] lg:w-[55rem] md:grid-cols-3 md:p-10  lg:p-14 lg:mr-16  lg:pt-0 ">
-              {currentItems == 0 ? <h2 className=" ">No items Found</h2> : denimGrp}
+        <div className="  col-span-4  ">
+          <section className=" flex flex-col justify-center items-center w-[100%]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:pt-0 w-[100%] ">
+              {currentItems.length === 0 ? (
+                <h2 className=" ">No items Found</h2>
+              ) : (
+                denimGrp
+              )}
             </div>
           </section>
+
           {/* Pagination */}
-          <ul className="pagination flex gap-5  justify-center pb-10">
+          <ul className="pagination flex gap-5  justify-center pb-10 ">
             {pageNumbers.map((number) => (
               <li
                 key={number}
@@ -190,3 +216,4 @@ export default function Category({ params }) {
     </>
   );
 }
+

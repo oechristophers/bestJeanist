@@ -56,11 +56,13 @@ export const blogPosts = [
 export default function page() {
   return (
     <div className="">
-      <LocationBar currentUrl='/blogs'/>
+      <div className="text-[.7rem] md:text-[.8rem] uppercase">
+        <LocationBar currentUrl="/blogs" />
+      </div>
       <section>
         <h1 className="text-center text-[2rem] mt-10 ">BestJeanist World</h1>
       </section>
-      
+
       <Blog />
     </div>
   );

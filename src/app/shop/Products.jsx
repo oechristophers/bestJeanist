@@ -13,7 +13,7 @@ export default function Product({ denimData }) {
 
   const [sort, setSort] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(9); // Number of items per page
+  const [itemsPerPage] = useState(8); // Number of items per page
 
   function searchProd(e) {
     setSort(e.target.value);
@@ -53,7 +53,7 @@ export default function Product({ denimData }) {
         className="h-[100%] flex flex-col z-0"
       >
       
-        <div className="h-[98%] relative flex flex-col card_cart ">
+        <div className="h-[98%] relative flex flex-col card_cart">
             <Link
         href={`/shop/${denim.name.split(" ").join("-")}`}
         className="h-[100%] flex flex-col z-0"
@@ -79,16 +79,16 @@ export default function Product({ denimData }) {
           </section>
         </div>
 
-        <div className="">
+        <div className=" flex flex-col gap-0">
           <Link
         href={`/shop/${denim.name.split(" ").join("-")}`}
         className=" hover:underline p-1"
       >
-          <h2 className=" text-[.6rem] sm:text-[.8rem] md:text-[.7rem] lg:text-[.8rem]">
+          <h2 className=" text-[.75rem] md:text-[.7rem] lg:text-[.8rem]">
             {denim.name}
           </h2>
           </Link>
-          <p className="text-[.7rem] sm:text-[.8rem]">&#x20A6;{denim.price}</p>
+          <p className="text-[.65rem] sm:text-[.8rem] pl-1">&#x20A6;{denim.price}</p>
         </div>
       </div>
     </section>
@@ -102,7 +102,7 @@ export default function Product({ denimData }) {
 
   return (
     <>
-      <div className="">
+      <div className="text-[.7rem] md:text-[.8rem] uppercase">
         <LocationBar currentUrl="/shop" />
       </div>
 
@@ -125,12 +125,15 @@ export default function Product({ denimData }) {
             <div className="grid grid-cols-2  grid-rows-2 md:flex md:flex-col">
               <section>
                 <nav className="col-span-1 text-center border py-4  bg-white">
-                  <button onClick={controlNav} className="h-2">
+                  <button
+                    onClick={controlNav}
+                    className="h-2 uppercase text-[.8rem] font-semibold"
+                  >
                     Category
                   </button>
 
                   <ul
-                    className={`md:block border-t leading-8 border mt-4 md:mt-2 ${
+                    className={`md:block border-t leading-8 border mt-4 md:mt-2 uppercase text-[.7rem] ${
                       open
                         ? "hidden"
                         : "block border border-t-0 leading-8 mt-4 "
@@ -147,9 +150,14 @@ export default function Product({ denimData }) {
 
               <section>
                 <nav className="col-span-1 justify-end items-end text-center border z-20 py-4  bg-white">
-                  <button onClick={controlNav2} className=" ">Gender</button>
+                  <button
+                    onClick={controlNav2}
+                    className=" uppercase text-[.8rem] font-semibold"
+                  >
+                    Gender
+                  </button>
                   <ul
-                    className={`md:block border-t leading-8 border mt-4 md:mt-2 ${
+                    className={`md:block border-t leading-8 border mt-4 md:mt-2 uppercase text-[.7rem] ${
                       open2
                         ? "hidden"
                         : "flex flex-col border border-t-0 col-start-2 leading-8"

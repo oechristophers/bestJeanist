@@ -53,7 +53,7 @@ export default function Header() {
     <div
       className={`max-w-[100%] sticky top-0 z-10 headert ${
         isTransparent
-          ? "header_main-page text-white hover:text-black"
+          ? "header_main-page text-white hover:text-black z-50"
           : "bg-white z-50"
       }`}
     >

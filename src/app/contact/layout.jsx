@@ -10,7 +10,9 @@ import LocationBar from '../components/LocationBar';
 export default function layout({children}) {
   return (
     <div>
-      <LocationBar currentUrl="/contact" />
+      <div className="text-[.7rem] md:text-[.8rem] uppercase">
+        <LocationBar currentUrl="/contact" />
+      </div>
       {children}
     </div>
   );

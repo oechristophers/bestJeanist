@@ -79,7 +79,7 @@ export function EmblaCarousel3() {
                 height={400}
               />
             </section>
-            <button className="z-50 mt-[-18rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
+            <button className="z-50 mt-[-13rem] sm:mt-[-15rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
               Reclaimed Lifestyle Jorts
             </button>
           </Link>
