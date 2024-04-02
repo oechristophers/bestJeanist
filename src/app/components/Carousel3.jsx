@@ -9,7 +9,7 @@ export function EmblaCarousel3() {
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
   return (
-    <div className="embla max-h-[107vh] pb-10" ref={emblaRef}>
+    <div className="embla h-[fit-content] pb-10" ref={emblaRef}>
       <div className="embla__container">
         <div className="embla__slide1">
           <Link href={`/shop/category/shorts`} className=" grid grid-cols-3">
@@ -42,7 +42,7 @@ export function EmblaCarousel3() {
                 height={400}
               />
             </section>
-            <button className="z-50 mt-[-18rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
+            <button className="z-50 mt-[-11rem] sm:mt-[-15rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
               Reclaimed Lifestyle Jorts
             </button>
           </Link>
@@ -79,7 +79,7 @@ export function EmblaCarousel3() {
                 height={400}
               />
             </section>
-            <button className="z-50 mt-[-13rem] sm:mt-[-15rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
+            <button className="z-50 mt-[-11rem] sm:mt-[-15rem] md:mt-[-25rem] w-[100vw] text-white text-4xl md:text-6xl lg:text-8xl ">
               Reclaimed Lifestyle Jorts
             </button>
           </Link>

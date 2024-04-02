@@ -9,8 +9,8 @@ export function EmblaCarousel() {
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
   return (
-    <div className="embla max-h-[107vh]" ref={emblaRef}>
-      <div className="embla__container">
+    <div className="embla h-[fit-content]" ref={emblaRef}>
+      <div className="embla__container flex">
         <div className="embla__slide1">
           <Link
             href={`/shop/${"Revigour vintage Skate Jean".split(" ").join("-")}`}
@@ -41,7 +41,7 @@ export function EmblaCarousel() {
           </section>
           </Link>
         </div>
-        <div className="embla__slide3 bg-blue-950 ml-12">
+        <div className="embla__slide3 ml-12">
           <Link
             href={`/shop/${"Vintage Loose Jean".split(" ").join("-")}`}
           >

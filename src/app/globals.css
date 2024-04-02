@@ -162,9 +162,11 @@ body {
 
   .embla {
     overflow: hidden;
+    max-height: fit-content;
   }
   .embla__container {
     display: flex;
+    max-height: fit-content;
   }
   .embla__slide1,
   .embla__slide2,
@@ -172,6 +174,7 @@ body {
     flex: 0 0 100%;
     min-width: 0;
     width: 100%;
+    max-height: fit-content;
   }
 
   /* .embla__slide1{

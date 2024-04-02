@@ -11,7 +11,7 @@ export function EmblaCarousel2() {
   return (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-        <div className="embla__slide1 min-h-screen">
+        <div className="embla__slide1 min-h-[fit-content]">
           <Link href="">
             <section>
               <Image
