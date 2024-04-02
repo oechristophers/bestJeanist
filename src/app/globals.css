@@ -91,6 +91,11 @@ body {
       width: 100vw;
       padding-left: 0.75rem;
     }
+
+    .small_carousel{
+      height: fit-content;
+     
+    }
   }
 
   @media screen and (max-width: 585px) {

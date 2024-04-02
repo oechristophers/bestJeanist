@@ -54,7 +54,7 @@ export default function Main() {
 
   const cutBlog = relatedCategory.slice(0, 3);
   return (
-    <main className="min-h-screen my-auto mt-[-14%] sm:mt-[-9%] md:mt-[-5%]">
+    <main className="min-h-screen my-auto mt-[-14%] sm:mt-[-9%] lg:mt-[-5%]">
       <EmblaCarousel />
 
       <div className="grid grid-cols-2 md:grid-cols-4 mt-5 gap-x-2 gap-10 pb-10 ">
